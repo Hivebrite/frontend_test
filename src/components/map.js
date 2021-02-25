@@ -10,11 +10,6 @@ const MapWrapper = styled.div`
     border-radius: 3px;
 `
 const Map = (props) => {
-    const detailedInfo = `
-        state: ${props.city.state}
-        population: ${props.city.population}
-        growth 2000-2013: ${props.city.growth_from_2000_to_2013}
-    `;
     const coordinates = [props.city.latitude, props.city.longitude];
 
     return (
@@ -33,7 +28,11 @@ const Map = (props) => {
                         position={coordinates}
                     >
                         <Popup>
-                            {detailedInfo}
+                            {`
+                            state: ${props.city.state}
+                            population: ${props.city.population}
+                            growth 2000-2013: ${props.city.growth_from_2000_to_2013}
+                        `}
                         </Popup>
                     </Marker>
                 </MapContainer>

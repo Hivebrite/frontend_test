@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 
-import data from '../data/cities.json';
 import City from './city';
 
 const ListWrapper = styled.div`
@@ -9,8 +8,8 @@ const ListWrapper = styled.div`
     height: 90%;
     padding: 30px;
     border: 1px solid lightgrey;
-    background-color: green;
     border-radius: 3px;
+    overflow-y: scroll;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,34 +23,29 @@ const SearchInput = styled.input`
     border-radius: 3px;
     margin-bottom: 10px;
 `
-const List = () => {
-    const [cities, setCities] = useState([]);
-    const [filteredList, setFilteredList] = useState([]);
+const List = ({ cities, searchList, selectCity }) => {
     const [search, setSearch] = useState('');
 
     const onFiltering = (e) => {
         setSearch(e.target.value);
-    }
+    };
+
+    const onCitySelect = (rank) => {
+        selectCity(rank);
+    };
 
     useEffect(() => {
-        setCities(data);
-    }, []);
-
-    useEffect(() => {
-        if (cities && cities.length > 0) {
-            console.log('CITIES:', cities.length);
-            const temp = cities.slice(0, 10);
-            console.log('list', temp);
-            setFilteredList(temp);
+        if (search.length > 2) {
+            searchList(search);
         }
-    }, [cities]);
+    }, [search]); // eslint-disable-line
 
     return (
         <>
             <ListWrapper>
                 <SearchInput type="text" value={search} onChange={onFiltering} placeholder="Filter the list"/>
-                {filteredList && filteredList.length > 0 && filteredList.map((element) => {
-                    return <City name={element.city}/>
+                {cities && cities.length > 0 && cities.map((element) => {
+                    return <City key={element.rank} name={element.city} onChoice={onCitySelect.bind(null, element.rank)}/>
                 })}
             </ListWrapper>
         </>
@@ -60,22 +54,3 @@ const List = () => {
 };
 
 export default List;
-
-// const getData = () => {
-//     fetch('./test.json'
-//         , {
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json'
-//             }
-//         }
-//     )
-//         .then((response) => {
-//             console.log('response', response)
-//             return response.json();
-//         })
-//         .then((myJson) => {
-//             console.log('myJson', myJson);
-//             setCities(myJson)
-//         });
-// }
