@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     align-items: center;
 `
 
-const Home = (props) => {
+const Home = () => {
     const [cities, setCities] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [selectedCity, setSelectedCity] = useState();
@@ -32,15 +32,13 @@ const Home = (props) => {
     };
 
     const selectCity = (rank) => {
-        console.log('CITY rank', rank);
         const city = filteredList.find((e) => e.rank === rank);
         setSelectedCity(city);
-        console.log('selected city rank:', selectedCity.rank);
     };
 
     const filterList = (str) => {
         console.log('filterList str:', str);
-        if (str.length > 2) {
+        if (str.length > 1) {
             const filter = cities.filter((e) => e.city.indexOf(str) !== -1);
             console.log('filterList:', filter);
             setFilteredList(filter);
