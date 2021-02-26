@@ -3,15 +3,15 @@ import styled from 'styled-components';
 
 const Button = styled.button`
     width: 100%;
+    height: 60px !important;
     border: 1px solid lightgrey;
     border-radius: 5px;
-    padding: 20px;
     text-align: center;
     margin-bottom: 10px;
     cursor: pointer;
     font-family: 'Helvetica';
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 14px;
 
     &:hover {
         background-color: lightblue;

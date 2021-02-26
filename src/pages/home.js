@@ -21,15 +21,6 @@ const Home = () => {
     const [cities, setCities] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [selectedCity, setSelectedCity] = useState();
-    const defaultCity = {
-        'city': 'Georgetown',
-        'growth_from_2000_to_2013': '91.9%',
-        'latitude': 30.6332618,
-        'longitude': -97.6779842,
-        'population': '54898',
-        'rank': '666',
-        'state': 'Texas',
-    };
 
     const selectCity = (rank) => {
         const city = filteredList.find((e) => e.rank === rank);
@@ -39,8 +30,7 @@ const Home = () => {
     const filterList = (str) => {
         console.log('filterList str:', str);
         if (str.length > 1) {
-            const filter = cities.filter((e) => e.city.indexOf(str) !== -1);
-            console.log('filterList:', filter);
+            const filter = cities.filter((e) => e.city.toLowerCase().indexOf(str.toLowerCase()) !== -1);
             setFilteredList(filter);
         } else {
             setFilteredList(cities.slice(0, 10));
@@ -60,7 +50,7 @@ const Home = () => {
     return (
         <Wrapper>
             <List cities={filteredList} selectCity={selectCity} searchList={filterList}/>
-            <Map city={selectedCity ? selectedCity : defaultCity}/>
+            <Map city={selectedCity}/>
         </Wrapper>
     );
 };
