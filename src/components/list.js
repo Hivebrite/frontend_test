@@ -3,23 +3,14 @@ import styled from 'styled-components'
 
 import City from './city';
 
-const ListContainer = styled.div`
+export const ListContainer = styled.div`
     width: 25vw;
     height: calc(100% - 40px);
     padding: 20px;
     border: 1px solid lightgrey;
     border-radius: 3px;
 `;
-const ListWrapper = styled.div`
-    width: 100%;
-    height: calc(100% - 40px);
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-    overflow-y: auto;
-`;
-const ListElements = styled.div`
+export const ListElements = styled.div`
     width: calc(100% - 10px);
     height: calc(100%-20px);
     border-radius: 3px;
@@ -28,7 +19,16 @@ const ListElements = styled.div`
     align-items: center;
     flex-direction: column;
 `;
-const SearchInput = styled.input`
+export const ListWrapper = styled.div`
+    width: 100%;
+    height: calc(100% - 40px);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
+`;
+export const SearchInput = styled.input`
     width: calc(100% - 5px);
     height: 30px;
     padding-left: 5px;
