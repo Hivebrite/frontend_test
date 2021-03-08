@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Listing and filtering cities should filter the list of cities 1`] = `[Function]`;
+exports[`Listing and filtering cities ListElements component should render ListElements with props 1`] = `undefined`;
 
 exports[`Listing and filtering cities should have 4 styled components 1`] = `[Function]`;
 
