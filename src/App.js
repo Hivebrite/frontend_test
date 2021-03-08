@@ -1,15 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
-
-const Wrapper = styled.div`
-  margin: 40px auto;
-  width: 1000px;
-`
+import Home from './pages/home';
 
 const App = () => (
-  <Wrapper>
-    Hi !
-  </Wrapper>
+    <Home />
 )
 
 export default App;
