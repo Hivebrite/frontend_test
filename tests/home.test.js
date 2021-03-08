@@ -57,7 +57,7 @@ describe('Home page', () => {
 
         it('should render multiple <City /> components in <List>', () => {
             const wrapper = mount(<List cities={cities} searchList={searchList} sekectCity={selectCity} />);
-            expect(wrapper.find(City)).to.have.lengthOf(3);
+            expect(wrapper.find(City)).toHaveLength(3);
         });
     });
     // describe('Map tests', () => {
