@@ -6,7 +6,7 @@ import Map from '../components/map';
 import data from '../data/cities.json';
 
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     margin: 40px auto;
     padding: 30px;
     width: 1000px;

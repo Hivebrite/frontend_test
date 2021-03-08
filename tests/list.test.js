@@ -1,11 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-// import { configure, shallow } from 'enzyme';
-// import Adapter from 'enzyme-adapter-react-16';
 
 import { ListContainer, ListElements, ListWrapper, SearchInput } from '../src/components/list';
-
-// configure({ adapter: new Adapter()});
 
 describe('Listing and filtering cities', () => {
     it('should have 4 styled components', () => {
@@ -39,24 +35,14 @@ describe('Listing and filtering cities', () => {
                 "population": "3884307",
                 "rank": "2",
                 "state": "California"
-            },
-            {
-                "city": "Chicago",
-                "growth_from_2000_to_2013": "-6.1%",
-                "latitude": 41.8781136,
-                "longitude": -87.6297982,
-                "population": "2718782",
-                "rank": "3",
-                "state": "Illinois"
             }
         ];
-
-        const getTree = (props = {}) => {
+        const getListElements = (props = {}) => {
             renderer.create(<ListElements {...props} />).toJSON();
         };
 
         it('should render ListElements with props', () => {
-            expect(getTree({ cities })).toMatchSnapshot();
+            expect(getListElements({ cities })).toMatchSnapshot();
         });
     });
 });

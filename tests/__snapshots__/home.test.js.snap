@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page should have 2 components 1`] = `
+<div
+  className="sc-gKsewC klXKBY"
+>
+  <div
+    className="sc-gsTCUz LBUjF"
+  >
+    <input
+      className="sc-eCssSg kmpSAM"
+      onChange={[Function]}
+      placeholder="Filter the list"
+      type="text"
+      value=""
+    />
+    <div
+      className="sc-hKgILt lciAJE"
+    >
+      <div
+        className="sc-dlfnbm fcLTFp"
+      />
+    </div>
+  </div>
+  <div
+    className="sc-jSgupP dOZTJJ"
+  >
+    <div />
+  </div>
+</div>
+`;
